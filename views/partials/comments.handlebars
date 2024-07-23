@@ -1,0 +1,19 @@
+
+
+<section class="comments-container">
+  <div class="row comments">
+    {{#each this}}
+    <div class="card">
+      <h3 class="card-header"></h3>
+      <div class="comment card-body">
+        <p class="comment-text">
+          {{comment_text}}
+        </p>
+        <div class="author-details">
+          -{{user.username}}, {{format_date, created_at}}
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</section>
