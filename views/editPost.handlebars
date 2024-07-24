@@ -1,6 +1,6 @@
 
 <section class="edit-container">
-    <h2 class="edit-title">Edit Post</h2>
+    <h2 class="edit-title card-header">Edit Post</h2>
     <form class="card-body edit-post-form">
 
         <div class="form-row">
@@ -13,10 +13,8 @@
         </div>
 
         <div class="form-row">
-            <label for="post-body" class="form-label">Content</label>
-            <textarea name="post-body" class="form-input">
-                {{post.content}}
-            </textarea>
+            <label for="content" class="form-label">Content</label>
+            <input type="text" name="content" value="{{post.content}}" class="form-input form-control">
         </div>
 
         <div class="form-row">

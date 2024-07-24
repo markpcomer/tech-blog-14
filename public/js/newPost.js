@@ -12,13 +12,15 @@ const newPostFormHandler = async (event) => {
     }
 
     const postData = {
-      title,
-      content
+      title: title,
+      content: content
     };
 
     const response = await fetch('/api/posts', {
       method: 'POST',
-      body: JSON.stringify(postData),
+      body: JSON.stringify(
+        postData
+      ),
       headers: {
         'Content-Type': 'application/json'
       }

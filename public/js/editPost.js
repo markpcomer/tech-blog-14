@@ -35,7 +35,12 @@ const editFormHandler = async (event) => {
 };
 
 
-document.querySelector('#edit-post-form').addEventListener('submit', editFormHandler);
+// document.querySelector('#edit-post-form').addEventListener('submit', editFormHandler);
+document.body.addEventListener('submit', (event) => {
+  if (event.target.id === 'edit-post-form') {
+    editFormHandler(event);
+  }
+});
 
 
 const getIdFromUrl = () => {

@@ -5,8 +5,14 @@ const withAuth = (req, res, next) => {
       next();
     }
   };
-  
 
+  const checkLogin = (req, res, next) => {
+    if (!req.session.logged_in) {
+      res.status(403).json({ msg: 'you must login to perform this action' });
+    } else {
+      next();
+    }
+  };
 
 
   const withoutAuth = (req, res, next) => {
@@ -17,5 +23,5 @@ const withAuth = (req, res, next) => {
     }
   };
 
-  module.exports = withAuth;
+  module.exports = { withAuth, checkLogin, withoutAuth };
   

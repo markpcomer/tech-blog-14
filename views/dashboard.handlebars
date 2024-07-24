@@ -1,4 +1,23 @@
-<section class="dashboard-container">
+<h2>My Posts</h2>
+
+<button type="submit" class="btn new-post-button">
+    <a class="link" href="/dashboard/new">+ New Post</a>
+    </button>
+<section>
+{{#if posts.length}}
+
+  
+    {{#each posts as |post|}}
+      {{> dashboard-postinfo post}}
+    {{/each}}
+
+
+{{/if}}
+</section>
+
+
+
+{{!-- <section class="dashboard-container">
     <div class="row">
         <div class="post-lists list-group">
             {{#each posts}}
@@ -11,7 +30,7 @@
             {{/each}}
         </div>
     </div>
-</section>
+</section> --}}
 
 
 {{!-- <div class="posts list-group">
