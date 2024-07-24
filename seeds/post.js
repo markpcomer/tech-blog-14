@@ -1,4 +1,4 @@
-const { Post } = require('../../tech-blog copy/models');
+const { Post } = require('../models');
 
 const postData = [
     {

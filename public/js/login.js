@@ -2,7 +2,7 @@
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
-  const usernameInput = document.querySelector('#email-login');
+  const usernameInput = document.querySelector('#username-login');
   const passwordInput = document.querySelector('#password-login');
   const username = usernameInput.value.trim();
   const password = passwordInput.value.trim();

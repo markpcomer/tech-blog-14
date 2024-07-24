@@ -37,3 +37,5 @@ const getIdFromUrl = () => {
   const urlParts = window.location.toString().split('/');
   return urlParts[urlParts.length - 1];
 };
+
+

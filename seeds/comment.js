@@ -1,4 +1,4 @@
-const { Comment } = require('../../tech-blog copy/models');
+const { Comment } = require('../models');
 
 const commentData = [{
         comment_text: "Mortality Gives Meaning To Human Life, Captain.",

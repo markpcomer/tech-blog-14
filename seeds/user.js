@@ -1,6 +1,6 @@
 //After models are completed I moved into making proper seed files. I ensured they are labeled with lowercased format; This helps to load examples into the database//
 
-const { User } = require('../../tech-blog copy/models');
+const { User } = require('../models');
 
 const userData =
 [

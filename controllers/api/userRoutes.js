@@ -65,7 +65,7 @@ router.post('/', async (req, res) => {
     });
 
   } catch(err) {
-    if (err instanceof Sequelize.ValdationError) {
+    if (err instanceof Sequelize.ValidationError) {
       const errors = err.errors.map(error => error.message);
       return res.status(400).json({ error: errors.join(', ')});
     } else {
