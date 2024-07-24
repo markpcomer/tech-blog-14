@@ -1,63 +1,31 @@
+// Handles form submission for user login
 async function loginFormHandler(event) {
   event.preventDefault();
 
+  // Retrieves username and password from the login form
   const username = document.querySelector('#username-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
 
   if (username && password) {
-    const response = await fetch('/api/users/login', {
-      method: 'post',
-      body: JSON.stringify({
-        username,
-        password
-      }),
-      headers: { 'Content-Type': 'application/json' }
-    });
+    try {
+      // Sends POST request to log in the user
+      const response = await fetch('/api/users/login', {
+        method: 'POST',
+        body: JSON.stringify({ username, password }),
+        headers: { 'Content-Type': 'application/json' }
+      });
 
-    if (response.ok) {
-      document.location.replace('/dashboard');
-    } else {
-      alert(response.statusText);
+      // Redirects to the dashboard if login is successful; otherwise, displays an error
+      if (response.ok) {
+        document.location.replace('/dashboard');
+      } else {
+        throw new Error(response.statusText);
+      }
+    } catch (error) {
+      alert(`Error: ${error.message}`);
     }
   }
 }
 
-
+// Event listener for submitting the login form
 document.querySelector('#login-form').addEventListener('submit', loginFormHandler);
-
-
-// // Define loginFormHandler function
-// const loginFormHandler = async (event) => {
-//   event.preventDefault();
-//   console.log("loginFormHandler");
-
-//   const username = document.querySelector('#username-login').value.trim();
-//   const password = document.querySelector('#password-login').value.trim();
-
-
-//   if (!username || !password) {
-//     alert('Please enter both username and password.');
-//     return; 
-//   }
-
-//   try {
-//     const response = await fetch('/api/users/login', {
-//       method: 'post',
-//       body: JSON.stringify({ username, password }),
-//       headers: {
-//         'Content-Type': 'application/json'
-//       }
-//     });
-
-//     if (response.ok) {
-//       document.location.replace('/dashboard');
-//     } else {
-//       throw new Error(response.statusText);
-//     }
-//   } catch (err) {
-//     alert(`Login error: ${err.message}`);
-//   }
-// };
-
-// document.querySelector('#login-form').addEventListener('submit', loginFormHandler);
-
