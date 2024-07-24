@@ -32,9 +32,13 @@
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
-    <footer>
+    {{#if dashboard}}
+    <footer class="footer">
+        <a href="/dashboard/new">New Post</a>
 
     </footer>
+    {{/if}}
+   
   </div>
 
   <!-- Render script for logged in users only -->

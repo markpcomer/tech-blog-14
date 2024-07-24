@@ -4,17 +4,23 @@
     <form class="card-body edit-post-form">
 
         <div class="form-row">
+            <input type="hidden" name="post-id" value="{{post.id}}" />
+        </div>
+
+        <div class="form-row">
             <label for="post-title" class="form-label">Title</label>
-            <input type="text" name="post-title" id="post-title" value="{{post.title}}" class="form-input form-control" />
+            <input type="text" name="post-title" value="{{post.title}}" class="form-input form-control">
         </div>
 
         <div class="form-row">
-            <label for="content" class="form-label">Content</label>
-            <input type="text" name="content" value="{{post.content}}" class="form-input form-control">
+            <label for="post-body" class="form-label">Content</label>
+            <textarea name="post-body" class="form-input">
+                {{post.content}}
+            </textarea>
         </div>
 
         <div class="form-row">
-            <button type="submit" class="btn">Update Post</button>
+            <button type="submit" class="btn update-btn">Update Post</button>
             <button type="button" class="delete-post-btn btn">Delete Post</button>
         </div>
 

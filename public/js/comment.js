@@ -2,8 +2,7 @@ async function commentFormHandler(event) {
     try {
       event.preventDefault();
   
-      const commentInput = document.querySelector('input[name="comment-body"]');
-      const comment_text = commentInput.value.trim();
+      const comment_text = document.querySelector('input[name="comment-body"]').value.trim();
   
       const post_id = getLastSegmentFromUrl();
   
@@ -22,11 +21,10 @@ async function commentFormHandler(event) {
       if (response.ok) {
         document.location.reload(); 
       } else {
-        throw new Error(response.statusText);
+        document.location.replace('/login');
       }
     } catch (error) {
       alert(`Error submitting comment: ${error.message}`);
-      document.querySelector('#comment-form').style.display = "block"; // Show comment form again on error
     }
   }
   

@@ -1,4 +1,4 @@
-
+{{!-- 
 
 <section class="home-container">
     {{#each posts as |post| }}
@@ -6,4 +6,24 @@
         {{> post-info post}}
     </div>
     {{/each}}
+</section> --}}
+
+<section class="home-container">
+    <div class="row">
+        {{#each posts}}
+
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h3 class="home-card-title">
+                <a href="/post/{{id}}">{{title}}</a>
+            </h3>
+        </div>
+        <p>Posted by {{user.username}} on {{format_date created_at}}</p>
+        <div class="card-body">
+            {{content}}
+        </div>
+        {{/each}}
+    </div>
+
 </section>

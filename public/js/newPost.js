@@ -1,11 +1,11 @@
 const newPostFormHandler = async (event) => {
+  console.log("newPost");
   try {
     event.preventDefault();
 
-    const titleInput = document.querySelector('input[name="post-title"]');
-    const contentInput = document.querySelector('input[name="content"]');
-    const title = titleInput.value.trim();
-    const content = contentInput.value.trim();
+    const title = document.querySelector('input[name="post-title"]').value.trim();
+    const content = document.querySelector('input[name="content"]').value.trim();
+  
 
     if (!title || !content) {
       throw new Error('Please enter both title & content.');

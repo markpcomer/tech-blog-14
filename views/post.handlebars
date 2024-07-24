@@ -1,5 +1,62 @@
-<section class="single-post-container">
-  {{> post-info post}}
+<section class="post-container">
+  <div class="row">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="post-title">{{post.title}}</h3>
+      </div>
+      <div class="post-info">
+        <p class="post-details">Posted by {{post.user.username}} on {{formatDate post.createdAt}}</p>
+      </div>
+      <div class="card-body">
+        <p>{{post.content}}</p>
+        </div>
+    </div>
+  </div>
+
+  {{#if post.comments}}
+  <div class="card">
+    <div class="card-header">
+      <h4 class="comments-title">Comments</h4>
+    </div>
+
+    <div class="card-body comment-section">
+      {{#each post.comments as |comment|}}
+      {{>comments}}
+      {{/each}}
+    </div>
+  </div>
+  {{/if}}
+
+  <div class="comment-container">
+    <div class="row">
+      <form id="comment-form" class="card">
+
+        <div class="card-header">
+          <h4 class="comment-title">Add New Comment</h4>
+        </div>
+
+        <div class="card-body">
+
+          <div class="form-row">
+            <input type="hidden" id="comment" value="{{post.id}}" />
+          </div>
+
+          <div class="form-row">
+            <label class="form-label" for="comment-body">Comment</label>
+            <input type="text" id="comment" name="comment-body" class="form-input form-control" />
+          </div>
+
+          <div class="form-row">
+            <button type="submit" class="btn">Submit</button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  {{!-- {{> post-info post}}
 
   {{#if loggedIn}}
 
@@ -20,7 +77,7 @@
   </div>
   {{/if}}
 
-  {{> comments post.comment}}
+  {{> comments post.comment}} --}}
 </section>
 
 <script src="/js/comment.js"></script>

@@ -1,12 +1,38 @@
-
-
 <section class="dashboard-container">
+    <div class="row">
+        <div class="post-lists list-group">
+            {{#each posts}}
+            <a class="list-item" href="/dashboard/edit{{id}}">
+                <span>
+                    <h5>{{title}}</h5>
+                    <p>{{format_date created_at}}</p>
+                </span>
+            </a>
+            {{/each}}
+        </div>
+    </div>
+</section>
+
+
+{{!-- <div class="posts list-group">
+  {{#each posts}}
+  <a class="list-item flex-row justify-space-between" href="/dashboard/edit/{{id}}">
+    <span>{{title}}</span>
+    <span>{{formatDate createdAt}}</span>
+  </a>
+  {{/each}}
+</div> --}}
+
+
+
+{{!-- <section class="dashboard-container">
     {{#if posts.length}}
     <div id="dashboard-posts">
         {{#each posts as |post|}}
         <div class="posts">
             {{>dashboard-postinfo post}}
         </div>
+        {{/each}}
     </div>
     {{/if}}
 </section>
@@ -16,4 +42,4 @@
     </button>
 </div>
 
-<script src="/js/newPost"></script>
+<script src="/js/newPost"></script> --}}

@@ -1,13 +1,13 @@
 const signupFormHandler = async (event) => {
   event.preventDefault();
-
+ console.log("clicked");
   const formData = {
     username: document.querySelector('#username-signup').value.trim(),
     email: document.querySelector('#email-signup').value.trim(),
     password: document.querySelector('#password-signup').value.trim()
   };
 
-  if (!formData.name || !formData.email || !formData.password) {
+  if (!formData.username || !formData.email || !formData.password) {
     return; 
   }
 
@@ -19,9 +19,9 @@ const signupFormHandler = async (event) => {
         'Content-Type': 'application/json'
       }
     });
-
+    console.log(response);
     if (response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace('/');
     } else {
       alert('Failed to sign up');
       throw new Error(response.statusText);
